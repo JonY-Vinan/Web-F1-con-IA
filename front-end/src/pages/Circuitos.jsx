@@ -2,6 +2,7 @@ import { useState } from "react";
 import "./Circuitos.css"; // Importamos el CSS personalizado
 import CircuitMap from "../pages/carrera/CircuitMap";
 import CountrySlider from "../pages/carrera/CountrySlider";
+import PointsConstructors from "../pages/carrera/PointsConstructors";
 // Datos de ejemplo para las listas
 const standingsData = [
   { team: "Red Bull Racing", points: 19 },
@@ -142,7 +143,9 @@ function Circuito() {
       <div className="row g-4">
         {/* Tarjeta 4 - Posiciones */}
         <div className="col-md-4">
-          <div className="card h-100 bg-darker-card text-white border-0 shadow">
+          <PointsConstructors />
+
+          {/* <div className="card h-100 bg-darker-card text-white border-0 shadow">
             <div className="card-body">
               <h5 className="card-title fw-bold">Standings</h5>
               <ul className="list-unstyled mt-3">
@@ -159,7 +162,7 @@ function Circuito() {
                 ))}
               </ul>
             </div>
-          </div>
+          </div> */}
         </div>
 
         {/* Tarjeta 5 - Próximo evento */}
