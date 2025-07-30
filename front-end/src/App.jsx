@@ -1,55 +1,28 @@
-import './App.css';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'; // Importa los componentes necesarios
-import Escuderia from './components/Escuderia';
+// App.jsx
+import "./App.css"; // Se mantiene, aunque su impacto es menor con Bootstrap
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
+import Navbar from "./components/Navbar";
 import SignIn from "./pages/SignIn";
-import Navbar from "./components/Navbar"; // Asegúrate de importar Navbar
+import Escuderia from "./pages/Escuderia";
+import Pilotos from "./pages/Pilotos";
+import Circuitos from "./pages/Circuitos";
 
 function App() {
   return (
     <Router>
+      {/* El Navbar ahora es fijo/absolute, por lo que el contenido debe estar debajo.
+          Home.jsx ahora incluye sus propios paddings para centrar el contenido. */}
       <Navbar />
       <Routes>
         <Route path="/" element={<Home />} />
+        {/* Descomenta estas rutas a medida que vayas creando los componentes/páginas */}
         <Route path="/signin" element={<SignIn />} />
         <Route path="/escuderia" element={<Escuderia />} />
-        {/* 
         <Route path="/pilotos" element={<Pilotos />} />
-        <Route path="/coches" element={<Coches />} />
         <Route path="/circuitos" element={<Circuitos />} />
-        <Route path="/perfil" element={<Perfil />} /> 
-        */}
       </Routes>
     </Router>
-    
-    // <div className="app-container">
-    //   {/* Navbar */}
-    //   <nav className="navbar">
-    //     <div className="navbar-container">
-    //       <a href="#" className="navbar-logo">Formula 1 App</a>
-          
-    //       {/* Menú principal */}
-    //       <div className="navbar-menu">
-    //         <a href="#" className="menu-item">Home</a>
-    //         <a href="#" className="menu-item">Pilotos</a>
-    //         <a href="#" className="menu-item">Escuderias</a>
-    //         <a href="#" className="menu-item">Temporada</a>
-    //       </div>
-          
-    //       {/* Lado derecho - Acciones */}
-    //       <div className="navbar-actions">
-    //         <a href="#" className="action-link">Log in</a>
-    //         <a href="#" className="action-button">Sign up</a>
-           
-    //       </div>
-    //     </div>
-    //   </nav>
-
-    //   {/* Contenido de la aplicación */}
-    //   <main className="main-content">
-    //     <Escuderia />
-    //   </main>
-    // </div>
   );
 }
 

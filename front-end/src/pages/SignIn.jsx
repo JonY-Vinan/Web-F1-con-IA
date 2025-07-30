@@ -59,7 +59,7 @@ const Registro = ({ agregarUsuario }) => {
   };
 
   return (
-    <div className="registro-container">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100">
       <div className="registro-wrapper">
         <div className="registro-form-container">
           <h1 className="registro-title">Únete a la Comunidad F1</h1>
