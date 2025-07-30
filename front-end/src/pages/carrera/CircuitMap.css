@@ -1,0 +1,15 @@
+/* Only keep essential custom styles that can't be done with Bootstrap */
+.map-wrapper {
+  position: relative;
+}
+
+/* Hide ESRI attribution */
+.esri-component.esri-attribution.esri-widget {
+  display: none;
+}
+
+@media (max-width: 768px) {
+  .map-wrapper {
+    height: 60vh !important;
+  }
+}

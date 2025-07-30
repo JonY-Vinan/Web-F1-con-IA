@@ -1,0 +1,75 @@
+/* Importa este archivo en tu Home.jsx o agrégalo a tu index.css */
+
+/* Texto con Gradiente */
+.gradient-text {
+  background: linear-gradient(to right, #f87171, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  color: transparent;
+  font-size: 4rem; /* Ajusta el tamaño de la fuente si es necesario */
+}
+
+/* Botón con Gradiente */
+.custom-btn-gradient {
+  background: linear-gradient(to right, #f87171, #8b5cf6);
+  border: none;
+  color: white !important;
+  font-weight: bold;
+}
+
+.custom-btn-gradient:hover {
+  background: linear-gradient(to right, #ef4444, #6d28d9);
+}
+
+/* Formas de Fondo Borrosas */
+.custom-background-blur-1 {
+  position: absolute;
+  top: -10rem;
+  left: 50%;
+  transform: translateX(-50%) rotate(30deg);
+  width: 50rem;
+  height: 50rem;
+  background: linear-gradient(to top right, #f87171, #8b5cf6);
+  opacity: 0.3;
+  filter: blur(80px);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.custom-background-blur-2 {
+  position: absolute;
+  bottom: -15rem;
+  right: 10%;
+  transform: translateX(10%) rotate(-30deg);
+  width: 60rem;
+  height: 60rem;
+  background: linear-gradient(to bottom left, #f87171, #8b5cf6);
+  opacity: 0.3;
+  filter: blur(80px);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+/* ... código anterior de gradientes y fondos ... */
+
+/* Estilos de imagen personalizados */
+.custom-image-style-1 {
+  /* No se necesitan estilos CSS adicionales para este ejemplo */
+}
+
+.custom-image-style-2 {
+  /* No se necesitan estilos CSS adicionales para este ejemplo */
+}
+
+/* Ejemplo 3: Forma irregular de la imagen con clip-path */
+.custom-image-style-3 {
+  /* Esto crea un polígono irregular. Puedes modificar los porcentajes para cambiar la forma */
+  clip-path: polygon(0 5%, 100% 0, 100% 95%, 0 100%);
+  transition: clip-path 0.3s ease-in-out;
+}
+
+.custom-image-style-3:hover {
+  /* Un efecto de hover sutil */
+  clip-path: polygon(5% 0, 100% 5%, 95% 100%, 0 95%);
+}
