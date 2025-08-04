@@ -1,0 +1,192 @@
+/* Pilotos.css - Mantenemos solo las animaciones y algunos estilos clave */
+
+.pilotos-ejemplo-1 {
+  min-height: 100vh;
+  background-color: var(--primary-color);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+  overflow: hidden;
+  position: relative;
+  transition: background-color 0.7s cubic-bezier(0.86, 0, 0.07, 1);
+}
+
+.pilotos-content {
+  background-size: contain;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 25px;
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  max-width: 1200px;
+  padding: 4rem 2rem;
+  position: relative;
+}
+
+.left-content {
+  z-index: 2;
+  text-align: left;
+}
+
+.pilot-name {
+  font-size: 5rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  margin: 0.5rem 0 1rem;
+  line-height: 1.1;
+}
+
+.right-content {
+  position: relative;
+  width: 60%;
+  height: 500px;
+}
+
+.driver-image {
+  position: absolute;
+  top: 0;
+  right: 0;
+  height: 113%;
+  object-fit: contain;
+  z-index: 2;
+}
+
+.car-image {
+  position: absolute;
+  bottom: 0;
+  top: 497px;
+  left: -150%;
+  width: 125%;
+  object-fit: contain;
+  z-index: 1;
+}
+
+.nav-button {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.3);
+  color: white;
+  border: none;
+  padding: 1.5rem 1rem;
+  font-size: 2rem;
+  cursor: pointer;
+  z-index: 10;
+  transition: background 0.3s;
+  border-radius: 10px; /* Estilos de los botones, se pueden mejorar con Bootstrap */
+}
+
+.prev-button {
+  left: 0;
+  border-radius: 0 10px 10px 0;
+}
+
+.next-button {
+  right: 0;
+  border-radius: 10px 0 0 10px;
+}
+
+
+/* Aquí mantenemos todas tus animaciones personalizadas */
+
+/* Clases de animación */
+.pilot-enter-active {
+  animation: driver-slide-in 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.pilot-exit-active {
+  animation: driver-slide-out 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.car-enter-active {
+  animation: car-slide-in 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+.car-exit-active {
+  animation: car-slide-out 0.9s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+/* Animaciones */
+@keyframes fade-in-up {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes driver-slide-in {
+  from {
+    transform: translateX(100px);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes driver-slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(-100px);
+    opacity: 0;
+  }
+}
+
+@keyframes car-slide-in {
+  from {
+    transform: translateX(-100vw);
+    opacity: 0;
+  }
+  to {
+    transform: translateX(0);
+    opacity: 1;
+  }
+}
+
+@keyframes car-slide-out {
+  from {
+    transform: translateX(0);
+    opacity: 1;
+  }
+  to {
+    transform: translateX(100vw);
+    opacity: 0;
+  }
+}
+
+/* Aquí he mantenido el media query para la adaptabilidad, que es importante */
+@media (max-width: 1024px) {
+  .pilotos-content {
+    flex-direction: column;
+    text-align: center;
+  }
+  .left-content, .right-content {
+    width: 100%;
+    text-align: center;
+  }
+  .pilot-name {
+    font-size: 3rem;
+  }
+  .stats-grid {
+    justify-content: center;
+  }
+  .right-content {
+    height: 400px;
+  }
+  .driver-image, .car-image {
+    position: static;
+    transform: none;
+    width: 100%;
+    height: auto;
+  }
+}

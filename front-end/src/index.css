@@ -1,7 +1,6 @@
 /* front-end/src/index.css */
 /* Este archivo ya no necesita las directivas de Tailwind CSS. */
 /* Puedes dejarlo vacío o usarlo para estilos globales muy específicos que no estén cubiertos por Bootstrap. */
-
 /* Ejemplo: Si quieres una fuente global o un color de fondo base que no sea de Bootstrap */
 body {
   font-family: "Arial", sans-serif; /* O cualquier otra fuente */

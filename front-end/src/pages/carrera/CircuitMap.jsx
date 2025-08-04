@@ -4,9 +4,21 @@ import MapView from "@arcgis/core/views/MapView";
 import SceneView from "@arcgis/core/views/SceneView";
 import Home from "@arcgis/core/widgets/Home";
 import "./CircuitMap.css";
+import CountrySlider from "../carrera/CountrySlider";
+
 // import WeatherInfo from "../SideInfo/WeatherInfo";
 // import ScheduleRacer from "../SideInfo/ScheduleRacer";
-const CircuitMap = ({ setMapView, setMapSceneView, nameCircuito, baseMap }) => {
+
+const CircuitMap = ({
+  setMapView,
+  setMapSceneView,
+  nameCircuito,
+  baseMap,
+  setCircuitName,
+  setIdCircuito,
+  setLat,
+  setLong,
+}) => {
   const mapRef = useRef(null);
   const mapRef3D = useRef(null);
   const [is3DView, setIs3DView] = useState(false);
@@ -37,15 +49,18 @@ const CircuitMap = ({ setMapView, setMapSceneView, nameCircuito, baseMap }) => {
       zoom: 6,
     });
 
-    const homeWidget = new Home({
+    const homeWidget2D = new Home({
       view: viewRef.current,
     });
-    viewRef.current.ui.add(homeWidget, "top-left");
+    viewRef.current.ui.add(homeWidget2D, "top-left");
+
+    const homeWidget3D = new Home({
+      view: view3DRef.current,
+    });
+    view3DRef.current.ui.add(homeWidget3D, "top-left");
 
     setMapView(viewRef.current);
     setMapSceneView(view3DRef.current);
-
-    mapRef3D.current.style.display = "none";
 
     return () => {
       if (viewRef.current) viewRef.current.destroy();
@@ -53,32 +68,10 @@ const CircuitMap = ({ setMapView, setMapSceneView, nameCircuito, baseMap }) => {
     };
   }, [baseMap, setMapView, setMapSceneView]);
 
-  useEffect(() => {
-    if (!mapRef.current || !mapRef3D.current) return;
-
-    if (is3DView) {
-      mapRef.current.style.display = "none";
-      mapRef3D.current.style.display = "block";
-    } else {
-      mapRef.current.style.display = "block";
-      mapRef3D.current.style.display = "none";
-    }
-  }, [is3DView]);
-
   return (
-    <div className="card shadow-sm h-100">
-      <div className="card-header bg-danger text-white d-flex justify-content-between align-items-center p-2">
-        <div className="d-flex align-items-center gap-3">
-          <img
-            src="/bandera.png"
-            alt="Bandera del país"
-            className="country-flag rounded"
-            style={{ width: "50px", height: "30px", objectFit: "cover" }}
-          />
-          <h5 className="m-0">{nameCircuito || "Selecciona un circuito"}</h5>
-        </div>
-
-        <button
+        <div className="card shadow-sm h-100">
+      
+{/* <button
           onClick={toggleView}
           className={`btn btn-sm ${
             is3DView ? "btn-light text-danger" : "btn-outline-light"
@@ -86,12 +79,10 @@ const CircuitMap = ({ setMapView, setMapSceneView, nameCircuito, baseMap }) => {
           aria-label="Cambiar vista 2D/3D"
         >
           {is3DView ? "2D" : "3D"}
-        </button>
-      </div>
-
+        </button> */}
       <div
         className="map-wrapper"
-        style={{ height: "45vh", backgroundColor: "#f5f5f5" }}
+        style={{ height: "74vh", backgroundColor: "#ffffffff" }}
       >
         <div
           ref={mapRef}
@@ -104,8 +95,6 @@ const CircuitMap = ({ setMapView, setMapSceneView, nameCircuito, baseMap }) => {
           aria-hidden={!is3DView}
         />
       </div>
-
-      <div className="card-footer bg-dark text-light p-2"></div>
     </div>
   );
 };

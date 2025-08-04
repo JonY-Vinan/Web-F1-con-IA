@@ -1,139 +1,153 @@
-// front-end/src/Escuderia.jsx
-import { useState, useEffect } from "react";
-// import "../pages/Escuderia.css"; // Importa el nuevo CSS
+import React, { useState } from "react";
+import "./Escuderia.css";
+
+const f1Teams = [
+  {
+    name: "Scuderia Ferrari",
+    carModel: "SF-25",
+    drivers: ["Charles Leclerc", "Carlos Sainz"],
+    logo: "https://www.klipartz.com/es/sticker-png-rywcs",
+    carImage: "/cars/ferrari25.jpg",
+    primaryColor: "#E10600",
+    secondaryColor: "#7c0000",
+  },
+  {
+    name: "Mercedes-AMG F1",
+    carModel: "W15 E Performance",
+    drivers: ["Lewis Hamilton", "George Russell"],
+    logo: "/cars/mercedes25.png",
+    carImage: "/cars/mercedes25.png",
+    primaryColor: "#00A99D",
+    secondaryColor: "#005a5a",
+  },
+  {
+    name: "Oracle Red Bull Racing",
+    carModel: "RB20",
+    drivers: ["Max Verstappen", "Sergio Pérez"],
+    logo: "https://www.formula1.com/content/dam/fom-website/teams/red-bull-racing.png",
+    carImage: "/cars/redbull25.webp",
+    primaryColor: "#0600EF",
+    secondaryColor: "#00008b",
+  },
+  {
+    name: "McLaren F1 Team",
+    carModel: "MCL38",
+    drivers: ["Lando Norris", "Oscar Piastri"],
+    logo: "https://www.formula1.com/content/dam/fom-website/teams/mclaren.png",
+    carImage: "/cars/mclaren25.jpg",
+    primaryColor: "#FF8700",
+    secondaryColor: "#cc6600",
+  },
+  {
+    name: "Aston Martin F1 Team",
+    carModel: "AMR24",
+    drivers: ["Fernando Alonso", "Lance Stroll"],
+    logo: "https://www.formula1.com/content/dam/fom-website/teams/aston-martin.png",
+    carImage: "https://www.formula1.com/content/dam/fom-website/teams/2024/aston-martin/car-launch-fom/AMR24-car-launch.jpg",
+    primaryColor: "#006F62",
+    secondaryColor: "#004d41",
+  },
+  {
+    name: "Alpine F1 Team",
+    carModel: "A524",
+    drivers: ["Pierre Gasly", "Esteban Ocon"],
+    logo: "https://www.formula1.com/content/dam/fom-website/teams/alpine.png",
+    carImage: "https://www.formula1.com/content/dam/fom-website/teams/2024/alpine/car-launch-fom/A524-car-launch.jpg",
+    primaryColor: "#005BA9",
+    secondaryColor: "#003a72",
+  },
+  {
+    name: "Haas F1 Team",
+    carModel: "VF-24",
+    drivers: ["Kevin Magnussen", "Nico Hülkenberg"],
+    logo: "https://www.formula1.com/content/dam/fom-website/teams/haas-f1-team.png",
+    carImage: "https://www.formula1.com/content/dam/fom-website/teams/2024/haas-f1-team/car-launch-fom/VF-24-car-launch.jpg",
+    primaryColor: "#B6BABD",
+    secondaryColor: "#8d8d8d",
+  },
+  {
+    name: "Visa Cash App RB F1 Team",
+    carModel: "VCARB 01",
+    drivers: ["Yuki Tsunoda", "Daniel Ricciardo"],
+    logo: "https://www.formula1.com/content/dam/fom-website/teams/visa-cash-app-rb.png",
+    carImage: "https://www.formula1.com/content/dam/fom-website/teams/2024/visa-cash-app-rb/car-launch-fom/VCARB01-car-launch.jpg",
+    primaryColor: "#003666",
+    secondaryColor: "#001e3b",
+  },
+  {
+    name: "Stake F1 Team Kick Sauber",
+    carModel: "C44",
+    drivers: ["Valtteri Bottas", "Zhou Guanyu"],
+    logo: "https://www.formula1.com/content/dam/fom-website/teams/sauber.png",
+    carImage: "https://www.formula1.com/content/dam/fom-website/teams/2024/kick-sauber/car-launch-fom/C44-car-launch.jpg",
+    primaryColor: "#52E252",
+    secondaryColor: "#359635",
+  },
+  {
+    name: "Williams Racing",
+    carModel: "FW46",
+    drivers: ["Alex Albon", "Logan Sargeant"],
+    logo: "https://www.formula1.com/content/dam/fom-website/teams/williams.png",
+    carImage: "https://www.formula1.com/content/dam/fom-website/teams/2024/williams/car-launch-fom/FW46-car-launch.jpg",
+    primaryColor: "#005A92",
+    secondaryColor: "#00385e",
+  },
+];
 
 function Escuderia() {
-  // Cambia el nombre de la función a Escuderia
-  const [teams, setTeams] = useState([]);
-  const [newTeamName, setNewTeamName] = useState("");
-  const [newTeamCountry, setNewTeamCountry] = useState("");
-  const [error, setError] = useState("");
-  const [message, setMessage] = useState("");
-
-  const API_URL = "http://localhost:5000"; // URL de tu backend Flask
-
-  // Función para obtener las escuderías
-  const fetchTeams = async () => {
-    try {
-      const response = await fetch(`${API_URL}/teams`);
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
-      const data = await response.json();
-      setTeams(data);
-    } catch (error) {
-      console.error("Error al obtener las escuderías:", error);
-      setError(
-        "No se pudieron cargar las escuderías. Asegúrate de que el backend esté funcionando."
-      );
-    }
-  };
-
-  // Cargar las escuderías al montar el componente
-  useEffect(() => {
-    fetchTeams();
-  }, []);
-
-  // Función para añadir una nueva escudería
-  const handleAddTeam = async (e) => {
-    e.preventDefault();
-    setError("");
-    setMessage("");
-
-    if (!newTeamName || !newTeamCountry) {
-      setError("Por favor, ingresa el nombre y el país de la escudería.");
-      return;
-    }
-
-    try {
-      const response = await fetch(`${API_URL}/teams`, {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({ name: newTeamName, country: newTeamCountry }),
-      });
-
-      if (!response.ok) {
-        const errorData = await response.json();
-        throw new Error(
-          errorData.error || `HTTP error! status: ${response.status}`
-        );
-      }
-
-      const addedTeam = await response.json();
-      setTeams([...teams, addedTeam]);
-      setNewTeamName("");
-      setNewTeamCountry("");
-      setMessage("Escudería añadida con éxito!");
-    } catch (error) {
-      console.error("Error al añadir la escudería:", error);
-      setError(`Error al añadir la escudería: ${error.message}`);
-    }
-  };
+  const [selectedTeam, setSelectedTeam] = useState(f1Teams[0]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <h1 className="text-4xl font-bold text-blue-700 mb-8">
-        Gestión de Escuderías de Fórmula 1
-      </h1>
-
-      <div className="bg-white p-6 rounded-lg shadow-md mb-8">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-          Añadir Nueva Escudería
-        </h2>
-        <form
-          onSubmit={handleAddTeam}
-          className="flex flex-col items-center space-y-4"
+    <>
+      <div
+        className="escuderia-container"
+        style={{
+          '--primary-color': selectedTeam.primaryColor,
+          '--secondary-color': selectedTeam.secondaryColor,
+          '--background-image': `url(${selectedTeam.carImage})`,
+        }}
+      >
+        <div className="left-side-content">
+          <div className="team-info">
+            <div className="logo-section">
+              <img
+                src={selectedTeam.logo}
+                alt={`${selectedTeam.name} Logo`}
+                className="team-logo"
+              />
+              <h2 className="team-name">{selectedTeam.name}</h2>
+              <p className="car-model">{selectedTeam.carModel}</p>
+            </div>
+            <div className="drivers-section">
+              <h3 className="drivers-title">Pilotos</h3>
+              <ul className="drivers-list">
+                {selectedTeam.drivers.map((driver, index) => (
+                  <li key={index}>
+                    <span className="driver-icon"></span> {driver}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div 
+          className="right-side-image" 
         >
-          <input
-            type="text"
-            placeholder="Nombre de la escudería"
-            value={newTeamName}
-            onChange={(e) => setNewTeamName(e.target.value)}
-            className="p-2 border border-gray-300 rounded-md w-full max-w-sm"
-          />
-          <input
-            type="text"
-            placeholder="País de origen"
-            value={newTeamCountry}
-            onChange={(e) => setNewTeamCountry(e.target.value)}
-            className="p-2 border border-gray-300 rounded-md w-full max-w-sm"
-          />
+          {/* Aquí se eliminó la etiqueta <img> para usarla como fondo */}
+        </div>
+      </div>
+      <div className="team-buttons-container">
+        {f1Teams.map((team, index) => (
           <button
-            type="submit"
-            className="bg-green-600 text-white px-6 py-2 rounded-md hover:bg-green-700 transition-colors"
-          >
-            Añadir Escudería
-          </button>
-        </form>
-        {error && <p className="text-red-500 mt-4">{error}</p>}
-        {message && <p className="text-green-600 mt-4">{message}</p>}
+            key={index}
+            className={`team-button ${selectedTeam.name === team.name ? 'active' : ''}`}
+            onClick={() => setSelectedTeam(team)}
+            style={{ '--team-color': team.primaryColor, backgroundImage: `url(${team.logo})` }}
+            title={team.name}
+          ></button>
+        ))}
       </div>
-
-      <div className="bg-white p-6 rounded-lg shadow-md">
-        <h2 className="text-2xl font-semibold text-gray-700 mb-4">
-          Lista de Escuderías
-        </h2>
-        {teams.length === 0 && !error ? (
-          <p className="text-gray-500">
-            Cargando escuderías o no hay ninguna todavía...
-          </p>
-        ) : (
-          <ul className="space-y-3">
-            {teams.map((team) => (
-              <li
-                key={team.id}
-                className="bg-blue-50 border border-blue-200 rounded-md p-3 flex justify-center items-center text-lg"
-              >
-                <strong className="text-blue-800">{team.name}</strong>{" "}
-                <span className="ml-2 text-gray-600">({team.country})</span>
-              </li>
-            ))}
-          </ul>
-        )}
-      </div>
-    </div>
+    </>
   );
 }
 

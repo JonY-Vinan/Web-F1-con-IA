@@ -1,0 +1,46 @@
+<div className="card h-100 bg-darker-card text-white border-0 shadow">
+            <div className="card-body">
+              <div className="row g-2">
+                <div className="col-6 text-center">
+                  <div className="driver-card p-2 rounded">
+                    <img
+                      src="./Pilotos/2024alpineestoco01right.webp"
+                      className="img-fluid rounded-top"
+                      alt="Theo Pourchaire"
+                    />
+                    <p className="mb-0 fw-bold small">THEO</p>
+                    <p className="mb-0 fw-bold small">POURCHAIRE</p>
+                    <p
+                      className="mb-0 text-white-50"
+                      style={{ fontSize: "0.7rem" }}
+                    >
+                      19TH
+                    </p>
+                  </div>
+                </div>
+                <div className="col-6 text-center">
+                  <div className="driver-card p-2 rounded">
+                    <img
+                      src="https://via.placeholder.com/150x200"
+                      className="img-fluid rounded-top"
+                      alt="Liam Lawson"
+                    />
+                    <p className="mb-0 fw-bold small">LIAM</p>
+                    <p className="mb-0 fw-bold small">LAWSON</p>
+                    <p
+                      className="mb-0 text-white-50"
+                      style={{ fontSize: "0.7rem" }}
+                    >
+                      17TH
+                    </p>
+                  </div>
+                </div>
+              </div>
+
+               <CountrySlider
+            mapView={mapView}
+            circuitName={setCircuitName}
+            idCircuito={setIdCircuito}
+          />
+            </div>
+          </div>

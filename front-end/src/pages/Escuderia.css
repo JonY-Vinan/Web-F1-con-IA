@@ -1,0 +1,170 @@
+/* Escuderia.css */
+
+.escuderia-container {
+  display: flex;
+  min-height: 100vh;
+  background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+  color: white;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  overflow: hidden;
+  transition: background 0.5s ease;
+
+   /* Agrega estas líneas para la imagen de fondo */
+  background-image: var(--background-image);
+  /* background-size: contain; */
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.left-side-content {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+}
+
+.team-info {
+  max-width: 400px;
+  text-align: left;
+}
+
+.logo-section {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  margin-bottom: 3rem;
+}
+
+.team-logo {
+  height: 80px;
+  margin-bottom: 1rem;
+}
+
+.team-name {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.car-model {
+  font-size: 1.5rem;
+  font-style: italic;
+  font-weight: 300;
+  opacity: 0.8;
+  margin-top: 0.5rem;
+}
+
+.drivers-section {
+  margin-top: 2rem;
+}
+
+.drivers-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  border-bottom: 2px solid white;
+  padding-bottom: 0.5rem;
+}
+
+.drivers-list {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.drivers-list li {
+  display: flex;
+  align-items: center;
+  font-size: 1.2rem;
+  margin-bottom: 0.8rem;
+}
+
+.driver-icon {
+  display: inline-block;
+  width: 15px;
+  height: 15px;
+  border: 2px solid white;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+/* Escuderia.css */
+
+/* ... Código existente ... */
+
+.right-side-image {
+  flex: 1.5;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 2rem;
+
+ 
+}
+
+/* ... Código restante ... */
+
+.car-image {
+  width: 100%;
+  max-width: 900px;
+  object-fit: contain;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* ESTILOS PARA LOS BOTONES DE ESCUDERÍA */
+.team-buttons-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  padding: 1rem;
+  background-color: #1a1a1a;
+  border-top: 1px solid #333;
+  flex-wrap: wrap;
+}
+
+.team-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  border: 3px solid transparent;
+  cursor: pointer;
+  background-size: 80%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-color: var(--team-color);
+  transition: all 0.3s ease;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+}
+
+.team-button.active {
+  border-color: white;
+  transform: scale(1.1);
+  box-shadow: 0 0 15px var(--team-color);
+}
+
+@media (max-width: 1024px) {
+  .escuderia-container {
+    flex-direction: column;
+    padding: 1rem;
+  }
+  .left-side-content,
+  .right-side-image {
+    flex: none;
+    width: 100%;
+  }
+  .team-info {
+    max-width: 100%;
+  }
+  .right-side-image {
+    min-height: 400px;
+    position: relative;
+  }
+  .car-image {
+    position: static;
+    transform: none;
+  }
+}

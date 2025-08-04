@@ -1,0 +1,122 @@
+.car-data {
+  background-color: #f4f4f9;
+  border-radius: 10px;
+  padding: 20px;
+  margin: 20px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.car-specs {
+  margin-bottom: 20px;
+}
+
+.car-specs p {
+  font-size: 16px;
+  margin: 10px 0;
+}
+
+.car-image img {
+  width: 100%;
+  max-width: 400px;
+  height: auto;
+  border-radius: 8px;
+}
+
+.tech-specs-container {
+  background-color: #f8f9fa;
+  border-radius: 8px;
+  padding: 1rem;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.tabs-container {
+  display: flex;
+  border-bottom: 2px solid #dee2e6;
+}
+
+.tab-btn {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #6c757d;
+  position: relative;
+  margin-right: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  color: #495057;
+}
+
+.tab-btn.active {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #dc3545;
+}
+
+.specs-section {
+  padding: 1rem 0;
+}
+
+.list-group-item {
+  padding: 0.75rem 1.25rem;
+}
+
+/* Estilo para el piloto seleccionado */
+.active-driver {
+  background-color: #f8f9fa;
+  border-left: 4px solid #dc3545;
+}
+
+/* Estilos para las pestañas */
+.tabs-container {
+  display: flex;
+  border-bottom: 2px solid #dee2e6;
+  margin-bottom: 1rem;
+}
+
+.tab-btn {
+  padding: 0.5rem 1rem;
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-weight: 500;
+  color: #6c757d;
+  position: relative;
+  margin-right: 0.5rem;
+  transition: all 0.3s ease;
+}
+
+.tab-btn:hover {
+  color: #495057;
+}
+
+.tab-btn.active {
+  color: #dc3545;
+  font-weight: 600;
+}
+
+.tab-btn.active::after {
+  content: '';
+  position: absolute;
+  bottom: -2px;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: #dc3545;
+}
+
+.specs-section {
+  padding: 1rem 0;
+}

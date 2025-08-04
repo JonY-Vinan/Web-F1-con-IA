@@ -1,39 +1,58 @@
-/* Color de fondo para las tarjetas, un poco más oscuro que bg-dark */
-.bg-darker-card {
-  background-color: #212529 !important; /* Un tono oscuro */
+/* Circuitos.css */
+.circuito-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #212529; /* Fondo oscuro */
+  color: #f8f9fa; /* Texto blanco */
 }
 
-/* Estilos para el gráfico circular */
-.circular-progress-container {
-  position: relative;
-  width: 120px;
-  height: 120px;
-  margin: 0 auto;
+.menu-panel, .center-panel, .right-panel {
+  background-color: #343a40; /* Color de fondo de los paneles */
 }
 
-.circular-progress {
-  width: 100%;
-  height: 100%;
-  border-radius: 50%;
-  background-color: #343a40; /* Fondo del círculo */
-  /* El borde del gráfico circular se simula con un degradado */
-  background-image: conic-gradient(#6c757d 0deg 270deg, #e9ecef 270deg 360deg);
+/* Estilos para el Acordeón */
+.accordion-item {
+  background-color: #343a40 !important;
+  border: 1px solid #495057;
+  color: #f8f9fa;
 }
 
-.progress-content {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+.accordion-header .accordion-button {
+  background-color: #343a40 !important;
+  color: #f8f9fa !important;
+  font-weight: bold;
 }
 
-.team-logo-placeholder {
-  width: 50px;
-  height: 50px;
-  background-color: #555;
-  border-radius: 8px;
+.accordion-header .accordion-button:not(.collapsed) {
+  background-color: #495057 !important;
+  color: #ffffff !important;
 }
 
-.driver-card {
-  background-color: #343a40; /* Fondo de las tarjetas de piloto */
+.accordion-body {
+  background-color: #2c3034 !important;
+  border-top: 1px solid #495057;
+}
+
+/* Estilos de las tarjetas (Card) */
+.card {
+  background-color: #343a40 !important;
+  border: 1px solid #495057 !important;
+}
+
+/* Estilos del selector de año */
+.form-select {
+  background-color: #495057 !important;
+  color: #f8f9fa !important;
+  border: 1px solid #6c757d;
+}
+
+.form-select:focus {
+  border-color: #0d6efd;
+  box-shadow: 0 0 0 0.25rem rgba(13, 110, 253, 0.25);
+}
+
+@media (min-width: 792px) {
+    .col-lg-6 {
+        flex: 0 0 auto;
+       width: 40%;
+    }
 }

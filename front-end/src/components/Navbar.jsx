@@ -1,136 +1,88 @@
-// src/components/Navbar.jsx
-"use client";
-
-import { useState } from "react";
-import { Dialog, DialogPanel } from "@headlessui/react";
+// src/components/NavbarRefactored.jsx
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
-import { Link } from "react-router-dom";
+import "./Navbar.css";
 
 const navigation = [
-  { name: "Home", href: "/" },
-  { name: "Escuderias", href: "/escuderia" },
+  // { name: "Escuderias", href: "/escuderia" },
   { name: "Pilotos", href: "/pilotos" },
   { name: "Circuitos", href: "/circuitos" },
 ];
 
 export default function Navbar() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    const usuarioGuardado = localStorage.getItem("usuarioActual");
+    if (usuarioGuardado) {
+      setUser(JSON.parse(usuarioGuardado));
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("usuarioActual");
+    setUser(null);
+    navigate("/");
+  };
+
+  const isClient = user && user.tipo_usuario === "CLIENTE";
+  const isAdmin = user && user.tipo_usuario === "ADMIN";
+  const isAuthenticated = user !== null;
 
   return (
-    // Bootstrap: Navbar con fondo oscuro, fijo en la parte superior
-    <header className="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow">
-      <div className="container-fluid">
-        <Link to="/" className="navbar-brand">
-          <span className="visually-hidden">F1 Project</span>
+    <header className="navbar-refactored">
+      <div className="navbar-container-refactored">
+        <Link to="/" className="navbar-logo-refactored">
           <img
             alt="F1 Logo"
             src="https://www.formula1.com/etc/designs/fom-website/images/f1_logo.svg"
-            className="d-inline-block align-text-top"
-            style={{ height: "32px" }} // Altura para el logo
+            className="navbar-logo-img-refactored"
           />
         </Link>
-
-        {/* Botón para menú móvil (toggler) */}
+        
         <button
-          className="navbar-toggler"
-          type="button"
-          onClick={() => setMobileMenuOpen(true)}
-          aria-controls="navbarSupportedContent"
-          aria-expanded={mobileMenuOpen ? "true" : "false"}
+          className="mobile-menu-button-refactored"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
           aria-label="Toggle navigation"
         >
-          <span className="navbar-toggler-icon"></span>
-          {/* O si prefieres el icono de Heroicons: */}
-          {/* <Bars3Icon aria-hidden="true" className="h-6 w-6" /> */}
+          {mobileMenuOpen ? <XMarkIcon className="h-6 w-6" /> : <Bars3Icon className="h-6 w-6" />}
         </button>
-
-        {/* Contenido del menú para pantallas grandes */}
-        <div
-          className="collapse navbar-collapse d-none d-lg-block"
-          id="navbarSupportedContent"
-        >
-          <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        
+        <nav className={`nav-links-refactored ${mobileMenuOpen ? "active" : ""}`}>
+          <div className="nav-group-refactored">
             {navigation.map((item) => (
-              <li className="nav-item" key={item.name}>
-                <Link
-                  to={item.href}
-                  className="nav-link text-light" // text-light para el texto claro
-                  aria-current={
-                    window.location.pathname === item.href ? "page" : undefined
-                  }
-                >
-                  {item.name}
-                </Link>
-              </li>
+              <Link key={item.name} to={item.href} onClick={() => setMobileMenuOpen(false)}>
+                {item.name}
+              </Link>
             ))}
-          </ul>
-          <div className="d-flex">
-            <Link
-              to="/signin"
-              className="btn btn-outline-light" // Botón con borde claro
-            >
-              Log in <span aria-hidden="true">&rarr;</span>
-            </Link>
+            {isClient && (
+              <Link to="/mi_cuenta" onClick={() => setMobileMenuOpen(false)}>
+                Perfil
+              </Link>
+            )}
+            {isAdmin && (
+              <Link to="/gestion" onClick={() => setMobileMenuOpen(false)}>
+                Gestión
+              </Link>
+            )}
           </div>
-        </div>
-      </div>
 
-      {/* Dialog para menú móvil (headlessui) */}
-      <Dialog
-        open={mobileMenuOpen}
-        onClose={setMobileMenuOpen}
-        className="d-lg-none" // Ocultar en pantallas lg y superiores
-      >
-        <div className="fixed inset-0 bg-dark bg-opacity-75 z-50" />{" "}
-        {/* Overlay oscuro */}
-        <DialogPanel className="fixed inset-y-0 right-0 w-75 bg-dark p-3 shadow-lg z-50">
-          {" "}
-          {/* Panel lateral oscuro */}
-          <div className="d-flex justify-content-between align-items-center mb-4">
-            <Link to="/" className="navbar-brand">
-              <span className="visually-hidden">F1 Project</span>
-              <img
-                alt="F1 Logo"
-                src="https://www.formula1.com/etc/designs/fom-website/images/f1_logo.svg"
-                className="d-inline-block align-text-top"
-                style={{ height: "32px" }}
-              />
-            </Link>
-            <button
-              type="button"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn-close btn-close-white" // Botón de cerrar blanco para fondo oscuro
-              aria-label="Close menu"
-            >
-              {/* O si prefieres el icono de Heroicons: */}
-              {/* <XMarkIcon aria-hidden="true" className="h-6 w-6 text-light" /> */}
-            </button>
+          <div className="auth-buttons-refactored">
+            {isAuthenticated ? (
+              <button onClick={handleLogout} className="btn-logout-refactored">
+                Logout
+              </button>
+            ) : (
+              <Link to="/login" className="btn-login-refactored">
+                Login
+              </Link>
+            )}
           </div>
-          <div className="d-flex flex-column">
-            <ul className="nav flex-column mb-auto">
-              {navigation.map((item) => (
-                <li className="nav-item" key={item.name}>
-                  <Link
-                    to={item.href}
-                    onClick={() => setMobileMenuOpen(false)}
-                    className="nav-link text-light py-2" // Texto claro, padding
-                  >
-                    {item.name}
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <hr className="text-white-50 my-3" /> {/* Separador */}
-            <Link
-              to="/signin"
-              onClick={() => setMobileMenuOpen(false)}
-              className="btn btn-primary w-100" // Botón primario de Bootstrap, ancho completo
-            >
-              Log in
-            </Link>
-          </div>
-        </DialogPanel>
-      </Dialog>
+        </nav>
+      </div>
     </header>
   );
 }

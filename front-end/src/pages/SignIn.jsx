@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
-import "./SignIn.css";
+import { useNavigate, Link } from "react-router-dom";
+import "./SignIn.css"; // Importa los estilos CSS
 
+// Datos de equipos y pilotos de F1
 const F1_TEAMS = {
   Mercedes: ["Lewis Hamilton", "George Russell"],
   RedBull: ["Max Verstappen", "Sergio Pérez"],
@@ -9,9 +10,10 @@ const F1_TEAMS = {
   McLaren: ["Lando Norris", "Oscar Piastri"],
   AstonMartin: ["Fernando Alonso", "Lance Stroll"],
   Alpine: ["Esteban Ocon", "Pierre Gasly"],
+  // Añade más equipos si lo deseas
 };
 
-const Registro = ({ agregarUsuario }) => {
+const SignIn = () => {
   const [formData, setFormData] = useState({
     nombre: "",
     apellidos: "",
@@ -32,47 +34,52 @@ const Registro = ({ agregarUsuario }) => {
     }
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
 
-    // Crear objeto de usuario
-    const nuevoUsuario = {
-      username: `${formData.nombre} ${formData.apellidos}`,
-      email: formData.email,
-      f1Team: formData.f1Team,
-      favoriteDriver: formData.favoriteDriver,
-      joinDate: new Date().toLocaleDateString("es-ES", {
-        month: "long",
-        year: "numeric",
-      }),
-      location: "Madrid, España", // Puedes agregar un campo para esto en el formulario si lo deseas
-    };
+    try {
+      const response = await fetch("http://127.0.0.1:5000/api/register", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          nombre: formData.nombre,
+          apellidos: formData.apellidos,
+          email: formData.email,
+          password: formData.contraseña,
+        }),
+      });
 
-    // Agregar usuario al estado global
-    agregarUsuario(nuevoUsuario);
+      if (!response.ok) {
+        throw new Error("Error al registrar el usuario");
+      }
 
-    // Guardar usuario actual en localStorage para la sesión
-    localStorage.setItem("usuarioActual", JSON.stringify(nuevoUsuario));
+      const result = await response.json();
+      console.log("Usuario registrado con éxito:", result);
 
-    // Redirigir a MiCuenta
-    navigate("/mi_cuenta", { state: nuevoUsuario });
+      // Guardar el objeto de usuario completo en localStorage
+      localStorage.setItem('usuarioActual', JSON.stringify(result.user));
+      // Redirigir al usuario pasando el objeto 'user' completo
+      navigate("/mi_cuenta", { state: { user: result.user } });
+
+    } catch (error) {
+      console.error("Error al enviar los datos:", error);
+      alert("Hubo un error al registrar el usuario. Por favor, inténtalo de nuevo.");
+    }
   };
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-gray-100">
-      <div className="registro-wrapper">
-        <div className="registro-form-container">
-          <h1 className="registro-title">Únete a la Comunidad F1</h1>
-          <p className="registro-subtitle">
-            Crea tu cuenta y comparte tu pasión por el automovilismo
-          </p>
+    <div className="signin-container">
+      <div className="signin-wrapper">
+        <div className="signin-form-container">
+          <h1 className="signin-title">Únete a la Comunidad F1</h1>
+          <p className="signin-subtitle">Crea tu cuenta y comparte tu pasión por el automovilismo</p>
 
-          <form className="registro-form" onSubmit={handleSubmit}>
+          <form className="signin-form" onSubmit={handleSubmit}>
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="nombre" className="form-label">
-                  Nombre
-                </label>
+                <label htmlFor="nombre" className="form-label">Nombre</label>
                 <input
                   type="text"
                   id="nombre"
@@ -85,9 +92,7 @@ const Registro = ({ agregarUsuario }) => {
                 />
               </div>
               <div className="form-group">
-                <label htmlFor="apellidos" className="form-label">
-                  Apellidos
-                </label>
+                <label htmlFor="apellidos" className="form-label">Apellidos</label>
                 <input
                   type="text"
                   id="apellidos"
@@ -102,9 +107,7 @@ const Registro = ({ agregarUsuario }) => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="email" className="form-label">
-                Correo electrónico
-              </label>
+              <label htmlFor="email" className="form-label">Correo electrónico</label>
               <input
                 type="email"
                 id="email"
@@ -118,9 +121,7 @@ const Registro = ({ agregarUsuario }) => {
             </div>
 
             <div className="form-group">
-              <label htmlFor="contraseña" className="form-label">
-                Contraseña
-              </label>
+              <label htmlFor="contraseña" className="form-label">Contraseña</label>
               <input
                 type="password"
                 id="contraseña"
@@ -136,9 +137,7 @@ const Registro = ({ agregarUsuario }) => {
 
             <div className="form-row">
               <div className="form-group">
-                <label htmlFor="f1Team" className="form-label">
-                  Equipo Favorito
-                </label>
+                <label htmlFor="f1Team" className="form-label">Equipo Favorito</label>
                 <select
                   id="f1Team"
                   name="f1Team"
@@ -149,16 +148,12 @@ const Registro = ({ agregarUsuario }) => {
                 >
                   <option value="">Selecciona un equipo</option>
                   {Object.keys(F1_TEAMS).map((team) => (
-                    <option key={team} value={team}>
-                      {team}
-                    </option>
+                    <option key={team} value={team}>{team}</option>
                   ))}
                 </select>
               </div>
               <div className="form-group">
-                <label htmlFor="favoriteDriver" className="form-label">
-                  Piloto Favorito
-                </label>
+                <label htmlFor="favoriteDriver" className="form-label">Piloto Favorito</label>
                 <select
                   id="favoriteDriver"
                   name="favoriteDriver"
@@ -169,37 +164,33 @@ const Registro = ({ agregarUsuario }) => {
                   disabled={!formData.f1Team}
                 >
                   <option value="">
-                    {formData.f1Team
-                      ? "Selecciona un piloto"
-                      : "Primero elige equipo"}
+                    {formData.f1Team ? "Selecciona un piloto" : "Primero elige equipo"}
                   </option>
                   {formData.f1Team &&
                     F1_TEAMS[formData.f1Team].map((driver) => (
-                      <option key={driver} value={driver}>
-                        {driver}
-                      </option>
+                      <option key={driver} value={driver}>{driver}</option>
                     ))}
                 </select>
               </div>
             </div>
 
-            <button type="submit" className="registro-button">
+            <button type="submit" className="signin-button">
               Crear Cuenta
               <span className="button-icon">→</span>
             </button>
 
             <p className="login-link">
-              ¿Ya tienes cuenta? <a href="/login">Inicia sesión aquí</a>
+              ¿Ya tienes cuenta? <Link to="/login">Inicia sesión aquí</Link>
             </p>
           </form>
         </div>
 
-        <div className="registro-image-container">
+        <div className="signin-image-container">
           <img
-            src="https://images.squarespace-cdn.com/content/v1/68245ffd9f73984bc78ca002/1726020718.808429-WUVJNELAWWECOBRGWTKI/imgg-od3-vodtycug.png"
-            alt="Bienvenido a la comunidad F1"
-            className="registro-image"
-          />
+                src="/images/piloto.png"
+                alt="Bienvenido a la comunidad F1"
+               className="signin-image"
+              />
           <div className="image-caption">
             <h3>Comparte tu pasión</h3>
             <p>Únete a miles de fans de Fórmula 1</p>
@@ -210,4 +201,4 @@ const Registro = ({ agregarUsuario }) => {
   );
 };
 
-export default Registro;
+export default SignIn;

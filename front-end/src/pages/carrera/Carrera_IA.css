@@ -1,0 +1,126 @@
+/* Estilos principales para el componente */
+.carrera-ia-container {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Contenedor del carrusel para posicionar las flechas */
+.carousel-container {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Estilo para las tarjetas de piloto en el carrusel */
+.driver-cards-container {
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  overflow-x: auto;
+  white-space: nowrap;
+  gap: 1rem;
+}
+
+.driver-cards-container::-webkit-scrollbar {
+  display: none; /* Chrome, Safari, Opera */
+}
+
+/* Estilos para las flechas de navegación */
+.carousel-nav-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  border: none;
+  color: white;
+  z-index: 10;
+  padding: 0.5rem;
+  border-radius: 50%;
+  height: 40px;
+  width: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s ease;
+}
+
+.carousel-nav-btn:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.carousel-nav-btn.left {
+  left: 10px;
+}
+
+.carousel-nav-btn.right {
+  right: 10px;
+}
+
+
+/* Estilo para las tarjetas de piloto */
+.driver-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+  border-radius: 12px;
+}
+
+.driver-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.5);
+}
+
+.driver-card.selected-driver {
+  border: 4px solid gold;
+  box-shadow: 0 0 10px gold, 0 0 20px rgba(255, 215, 0, 0.5);
+}
+
+.driver-image-carousel {
+  height: 150px;
+  width: 100%;
+  object-fit: cover;
+}
+
+.driver-name-text {
+  font-weight: bold;
+  font-size: 1rem;
+}
+
+.driver-team-text {
+  font-size: 0.8rem;
+  color: #cccccc;
+}
+
+/* Estilos para las imágenes de los pilotos seleccionados */
+.selected-driver-image {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid gold;
+  box-shadow: 0 0 8px gold;
+}
+
+/* Estilos para el texto de resultado */
+.alert.alert-info p {
+  color: #fafafa;
+}
+
+.alert-success {
+    --bs-alert-color: #ffffff;
+    --bs-alert-bg: #000000;
+    --bs-alert-border-color: var(--bs-success-border-subtle);
+    --bs-alert-link-color: #bf0404;
+}
+
+.fade.text-center.alert.alert-info.show {
+    --bs-alert-color: #ffffff;
+    --bs-alert-bg: #af2300;
+    --bs-alert-border-color: #ffffff;
+    --bs-alert-link-color: #f0f0f0;
+}
+
+.fade.text-center.alert.alert-success.show {
+    --bs-alert-color: #184530;
+    --bs-alert-bg: #00d773;
+    --bs-alert-border-color: #50fc00;
+    --bs-alert-link-color: #2a5a44;
+}

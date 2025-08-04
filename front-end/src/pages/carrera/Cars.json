@@ -1,0 +1,662 @@
+{
+  "season": "2024",
+  "teams": [
+    {
+      "name": "Red Bull Racing",
+      "base": "Milton Keynes, UK",
+      "team_principal": "Christian Horner",
+      "drivers": [
+        {
+          "name": "Max Verstappen",
+          "number": 1,
+          "nationality": "Dutch",
+          "date_of_birth": "1997-09-30",
+          "world_championships": 3,
+          "podiums": 98,
+          "points": 2586.5,
+          "grands_prix_entered": 185,
+          "highest_race_finish": "1st (x54)"
+        },
+        {
+          "name": "Sergio Pérez",
+          "number": 11,
+          "nationality": "Mexican",
+          "date_of_birth": "1990-01-26",
+          "world_championships": 0,
+          "podiums": 36,
+          "points": 1486,
+          "grands_prix_entered": 259,
+          "highest_race_finish": "1st (x6)"
+        }
+      ],
+      "car": {
+        "model": "RB20",
+        "engine": {
+          "manufacturer": "Honda RBPT",
+          "model": "RA621H",
+          "type": "V6 Turbo Hybrid",
+          "horsepower": 1060,
+          "energy_recovery_system": "Honda"
+        },
+        "chassis": {
+          "material": "Carbon fiber",
+          "type": "Monocoque",
+          "weight_distribution": "45.5%/54.5%",
+          "dimensions": {
+            "length": "5105mm",
+            "width": "1900mm",
+            "height": "950mm",
+            "weight": "798kg"
+          }
+        },
+        "performance": {
+          "max_speed": "335 km/h",
+          "0_to_100_kmh": "2.2s",
+          "0_to_200_kmh": "4.8s",
+          "downforce_at_200kmh": "3800kg",
+          "aero": {
+            "front_wing": "Adjustable multi-element",
+            "rear_wing": "Adjustable with DRS",
+            "floor": "Venturi tunnel design",
+            "diffuser": "Multi-channel"
+          }
+        },
+        "color": "Dark Blue, Red, Yellow",
+        "color_code": "#1e3a8a",
+        "image_url": "https://example.com/red-bull-rb20-profile.jpg",
+        "best_laps": [
+          {
+            "circuit": "Bahrain International Circuit",
+            "best_lap_time": "1:31.447",
+            "top_speed": "332 km/h",
+            "circuit_length": "5.412 km"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Mercedes-AMG Petronas",
+      "base": "Brackley, UK",
+      "team_principal": "Toto Wolff",
+      "drivers": [
+        {
+          "name": "Lewis Hamilton",
+          "number": 44,
+          "nationality": "British",
+          "date_of_birth": "1985-01-07",
+          "world_championships": 7,
+          "podiums": 197,
+          "points": 4639.5,
+          "grands_prix_entered": 332,
+          "highest_race_finish": "1st (x103)"
+        },
+        {
+          "name": "George Russell",
+          "number": 63,
+          "nationality": "British",
+          "date_of_birth": "1998-02-15",
+          "world_championships": 0,
+          "podiums": 11,
+          "points": 469,
+          "grands_prix_entered": 104,
+          "highest_race_finish": "1st (x1)"
+        }
+      ],
+      "car": {
+        "model": "W15",
+        "engine": {
+          "manufacturer": "Mercedes",
+          "model": "M15",
+          "type": "V6 Turbo Hybrid",
+          "horsepower": 1070,
+          "energy_recovery_system": "Mercedes EQ Power+"
+        },
+        "chassis": {
+          "material": "Carbon fiber",
+          "type": "Monocoque",
+          "weight_distribution": "46%/54%",
+          "dimensions": {
+            "length": "5107mm",
+            "width": "1903mm",
+            "height": "950mm",
+            "weight": "798kg"
+          }
+        },
+        "performance": {
+          "max_speed": "328 km/h",
+          "0_to_100_kmh": "2.3s",
+          "0_to_200_kmh": "5.0s",
+          "downforce_at_200kmh": "3700kg",
+          "aero": {
+            "front_wing": "Adjustable multi-element",
+            "rear_wing": "Adjustable with DRS",
+            "floor": "Venturi tunnel design",
+            "diffuser": "Multi-channel"
+          }
+        },
+        "color": "Silver, Black, Green",
+        "color_code": "#00b140",
+        "image_url": "https://example.com/mercedes-w15-profile.jpg",
+        "best_laps": [
+          {
+            "circuit": "Bahrain International Circuit",
+            "best_lap_time": "1:31.832",
+            "top_speed": "327 km/h",
+            "circuit_length": "5.412 km"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Ferrari",
+      "base": "Maranello, Italy",
+      "team_principal": "Frédéric Vasseur",
+      "drivers": [
+        {
+          "name": "Charles Leclerc",
+          "number": 16,
+          "nationality": "Monegasque",
+          "date_of_birth": "1997-10-16",
+          "world_championships": 0,
+          "podiums": 30,
+          "points": 1074,
+          "grands_prix_entered": 123,
+          "highest_race_finish": "1st (x5)"
+        },
+        {
+          "name": "Carlos Sainz",
+          "number": 55,
+          "nationality": "Spanish",
+          "date_of_birth": "1994-09-01",
+          "world_championships": 0,
+          "podiums": 21,
+          "points": 982.5,
+          "grands_prix_entered": 185,
+          "highest_race_finish": "1st (x2)"
+        }
+      ],
+      "car": {
+        "model": "SF-24",
+        "engine": {
+          "manufacturer": "Ferrari",
+          "model": "066/12",
+          "type": "V6 Turbo Hybrid",
+          "horsepower": 1065,
+          "energy_recovery_system": "Ferrari"
+        },
+        "chassis": {
+          "material": "Carbon fiber",
+          "type": "Monocoque",
+          "weight_distribution": "45.8%/54.2%",
+          "dimensions": {
+            "length": "5110mm",
+            "width": "1902mm",
+            "height": "950mm",
+            "weight": "798kg"
+          }
+        },
+        "performance": {
+          "max_speed": "330 km/h",
+          "0_to_100_kmh": "2.3s",
+          "0_to_200_kmh": "5.1s",
+          "downforce_at_200kmh": "3750kg",
+          "aero": {
+            "front_wing": "Adjustable multi-element",
+            "rear_wing": "Adjustable with DRS",
+            "floor": "Venturi tunnel design",
+            "diffuser": "Multi-channel"
+          }
+        },
+        "color": "Red, Black, Yellow",
+        "color_code": "#e10600",
+        "image_url": "https://example.com/ferrari-sf24-profile.jpg",
+        "best_laps": [
+          {
+            "circuit": "Bahrain International Circuit",
+            "best_lap_time": "1:31.678",
+            "top_speed": "329 km/h",
+            "circuit_length": "5.412 km"
+          }
+        ]
+      }
+    },
+    {
+      "name": "McLaren",
+      "base": "Woking, UK",
+      "team_principal": "Andrea Stella",
+      "drivers": [
+        {
+          "name": "Lando Norris",
+          "number": 4,
+          "nationality": "British",
+          "date_of_birth": "1999-11-13",
+          "world_championships": 0,
+          "podiums": 13,
+          "points": 633,
+          "grands_prix_entered": 104,
+          "highest_race_finish": "2nd (x6)"
+        },
+        {
+          "name": "Oscar Piastri",
+          "number": 81,
+          "nationality": "Australian",
+          "date_of_birth": "2001-04-06",
+          "world_championships": 0,
+          "podiums": 2,
+          "points": 97,
+          "grands_prix_entered": 22,
+          "highest_race_finish": "2nd (x1)"
+        }
+      ],
+      "car": {
+        "model": "MCL38",
+        "engine": {
+          "manufacturer": "Mercedes",
+          "model": "M15",
+          "type": "V6 Turbo Hybrid",
+          "horsepower": 1060,
+          "energy_recovery_system": "Mercedes EQ Power+"
+        },
+        "chassis": {
+          "material": "Carbon fiber",
+          "type": "Monocoque",
+          "weight_distribution": "46.2%/53.8%",
+          "dimensions": {
+            "length": "5105mm",
+            "width": "1901mm",
+            "height": "950mm",
+            "weight": "798kg"
+          }
+        },
+        "performance": {
+          "max_speed": "328 km/h",
+          "0_to_100_kmh": "2.4s",
+          "0_to_200_kmh": "5.2s",
+          "downforce_at_200kmh": "3650kg",
+          "aero": {
+            "front_wing": "Adjustable multi-element",
+            "rear_wing": "Adjustable with DRS",
+            "floor": "Venturi tunnel design",
+            "diffuser": "Multi-channel"
+          }
+        },
+        "color": "Papaya Orange, Black",
+        "color_code": "#ff7a00",
+        "image_url": "https://example.com/mclaren-mcl38-profile.jpg",
+        "best_laps": [
+          {
+            "circuit": "Bahrain International Circuit",
+            "best_lap_time": "1:32.145",
+            "top_speed": "326 km/h",
+            "circuit_length": "5.412 km"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Aston Martin Aramco",
+      "base": "Silverstone, UK",
+      "team_principal": "Mike Krack",
+      "drivers": [
+        {
+          "name": "Fernando Alonso",
+          "number": 14,
+          "nationality": "Spanish",
+          "date_of_birth": "1981-07-29",
+          "world_championships": 2,
+          "podiums": 106,
+          "points": 2267,
+          "grands_prix_entered": 380,
+          "highest_race_finish": "1st (x32)"
+        },
+        {
+          "name": "Lance Stroll",
+          "number": 18,
+          "nationality": "Canadian",
+          "date_of_birth": "1998-10-29",
+          "world_championships": 0,
+          "podiums": 3,
+          "points": 268,
+          "grands_prix_entered": 146,
+          "highest_race_finish": "3rd (x3)"
+        }
+      ],
+      "car": {
+        "model": "AMR24",
+        "engine": {
+          "manufacturer": "Mercedes",
+          "model": "M15",
+          "type": "V6 Turbo Hybrid",
+          "horsepower": 1060,
+          "energy_recovery_system": "Mercedes EQ Power+"
+        },
+        "chassis": {
+          "material": "Carbon fiber",
+          "type": "Monocoque",
+          "weight_distribution": "45.7%/54.3%",
+          "dimensions": {
+            "length": "5110mm",
+            "width": "1900mm",
+            "height": "950mm",
+            "weight": "798kg"
+          }
+        },
+        "performance": {
+          "max_speed": "325 km/h",
+          "0_to_100_kmh": "2.5s",
+          "0_to_200_kmh": "5.4s",
+          "downforce_at_200kmh": "3600kg",
+          "aero": {
+            "front_wing": "Adjustable multi-element",
+            "rear_wing": "Adjustable with DRS",
+            "floor": "Venturi tunnel design",
+            "diffuser": "Multi-channel"
+          }
+        },
+        "color": "Green, Black, Silver",
+        "color_code": "#006747",
+        "image_url": "https://example.com/aston-martin-amr24-profile.jpg",
+        "best_laps": [
+          {
+            "circuit": "Bahrain International Circuit",
+            "best_lap_time": "1:32.543",
+            "top_speed": "324 km/h",
+            "circuit_length": "5.412 km"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Alpine",
+      "base": "Enstone, UK",
+      "team_principal": "Bruno Famin",
+      "drivers": [
+        {
+          "name": "Pierre Gasly",
+          "number": 10,
+          "nationality": "French",
+          "date_of_birth": "1996-02-07",
+          "world_championships": 0,
+          "podiums": 4,
+          "points": 394,
+          "grands_prix_entered": 136,
+          "highest_race_finish": "1st (x1)"
+        },
+        {
+          "name": "Esteban Ocon",
+          "number": 31,
+          "nationality": "French",
+          "date_of_birth": "1996-09-17",
+          "world_championships": 0,
+          "podiums": 3,
+          "points": 422,
+          "grands_prix_entered": 133,
+          "highest_race_finish": "1st (x1)"
+        }
+      ],
+      "car": {
+        "model": "A524",
+        "engine": {
+          "manufacturer": "Renault",
+          "model": "E-Tech RE24",
+          "type": "V6 Turbo Hybrid",
+          "horsepower": 1055,
+          "energy_recovery_system": "Renault"
+        },
+        "chassis": {
+          "material": "Carbon fiber",
+          "type": "Monocoque",
+          "weight_distribution": "46.1%/53.9%",
+          "dimensions": {
+            "length": "5115mm",
+            "width": "1902mm",
+            "height": "950mm",
+            "weight": "798kg"
+          }
+        },
+        "performance": {
+          "max_speed": "324 km/h",
+          "0_to_100_kmh": "2.5s",
+          "0_to_200_kmh": "5.5s",
+          "downforce_at_200kmh": "3550kg",
+          "aero": {
+            "front_wing": "Adjustable multi-element",
+            "rear_wing": "Adjustable with DRS",
+            "floor": "Venturi tunnel design",
+            "diffuser": "Multi-channel"
+          }
+        },
+        "color": "Blue, White, Red",
+        "color_code": "#006ab6",
+        "image_url": "https://example.com/alpine-a524-profile.jpg",
+        "best_laps": [
+          {
+            "circuit": "Bahrain International Circuit",
+            "best_lap_time": "1:32.876",
+            "top_speed": "322 km/h",
+            "circuit_length": "5.412 km"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Stake F1 Team Kick Sauber",
+      "base": "Hinwil, Switzerland",
+      "team_principal": "Alessandro Alunni Bravi",
+      "drivers": [
+        {
+          "name": "Valtteri Bottas",
+          "number": 77,
+          "nationality": "Finnish",
+          "date_of_birth": "1989-08-28",
+          "world_championships": 0,
+          "podiums": 67,
+          "points": 1797,
+          "grands_prix_entered": 223,
+          "highest_race_finish": "1st (x10)"
+        },
+        {
+          "name": "Zhou Guanyu",
+          "number": 24,
+          "nationality": "Chinese",
+          "date_of_birth": "1999-05-30",
+          "world_championships": 0,
+          "podiums": 0,
+          "points": 12,
+          "grands_prix_entered": 44,
+          "highest_race_finish": "8th (x2)"
+        }
+      ],
+      "car": {
+        "model": "C44",
+        "engine": {
+          "manufacturer": "Ferrari",
+          "model": "066/12",
+          "type": "V6 Turbo Hybrid",
+          "horsepower": 1060,
+          "energy_recovery_system": "Ferrari"
+        },
+        "chassis": {
+          "material": "Carbon fiber",
+          "type": "Monocoque",
+          "weight_distribution": "45.9%/54.1%",
+          "dimensions": {
+            "length": "5100mm",
+            "width": "1900mm",
+            "height": "950mm",
+            "weight": "798kg"
+          }
+        },
+        "performance": {
+          "max_speed": "323 km/h",
+          "0_to_100_kmh": "2.6s",
+          "0_to_200_kmh": "5.6s",
+          "downforce_at_200kmh": "3500kg",
+          "aero": {
+            "front_wing": "Adjustable multi-element",
+            "rear_wing": "Adjustable with DRS",
+            "floor": "Venturi tunnel design",
+            "diffuser": "Multi-channel"
+          }
+        },
+        "color": "Black, Green",
+        "color_code": "#000000",
+        "image_url": "https://example.com/sauber-c44-profile.jpg",
+        "best_laps": [
+          {
+            "circuit": "Bahrain International Circuit",
+            "best_lap_time": "1:33.214",
+            "top_speed": "321 km/h",
+            "circuit_length": "5.412 km"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Haas F1 Team",
+      "base": "Kannapolis, USA",
+      "team_principal": "Ayao Komatsu",
+      "drivers": [
+        {
+          "name": "Kevin Magnussen",
+          "number": 20,
+          "nationality": "Danish",
+          "date_of_birth": "1992-10-05",
+          "world_championships": 0,
+          "podiums": 1,
+          "points": 186,
+          "grands_prix_entered": 163,
+          "highest_race_finish": "2nd (x1)"
+        },
+        {
+          "name": "Nico Hülkenberg",
+          "number": 27,
+          "nationality": "German",
+          "date_of_birth": "1987-08-19",
+          "world_championships": 0,
+          "podiums": 0,
+          "points": 530,
+          "grands_prix_entered": 203,
+          "highest_race_finish": "4th (x4)"
+        }
+      ],
+      "car": {
+        "model": "VF-24",
+        "engine": {
+          "manufacturer": "Ferrari",
+          "model": "066/12",
+          "type": "V6 Turbo Hybrid",
+          "horsepower": 1050,
+          "energy_recovery_system": "Ferrari"
+        },
+        "chassis": {
+          "material": "Carbon fiber",
+          "type": "Monocoque",
+          "weight_distribution": "46%/54%",
+          "dimensions": {
+            "length": "5100mm",
+            "width": "1900mm",
+            "height": "950mm",
+            "weight": "798kg"
+          }
+        },
+        "performance": {
+          "max_speed": "320 km/h",
+          "0_to_100_kmh": "2.7s",
+          "0_to_200_kmh": "5.8s",
+          "downforce_at_200kmh": "3450kg",
+          "aero": {
+            "front_wing": "Adjustable multi-element",
+            "rear_wing": "Adjustable with DRS",
+            "floor": "Venturi tunnel design",
+            "diffuser": "Multi-channel"
+          }
+        },
+        "color": "White, Black, Red",
+        "color_code": "#ffffff",
+        "image_url": "https://example.com/haas-vf24-profile.jpg",
+        "best_laps": [
+          {
+            "circuit": "Bahrain International Circuit",
+            "best_lap_time": "1:33.543",
+            "top_speed": "318 km/h",
+            "circuit_length": "5.412 km"
+          }
+        ]
+      }
+    },
+    {
+      "name": "Williams Racing",
+      "base": "Grove, UK",
+      "team_principal": "James Vowles",
+      "drivers": [
+        {
+          "name": "Alexander Albon",
+          "number": 23,
+          "nationality": "Thai",
+          "date_of_birth": "1996-03-23",
+          "world_championships": 0,
+          "podiums": 2,
+          "points": 228,
+          "grands_prix_entered": 82,
+          "highest_race_finish": "3rd (x2)"
+        },
+        {
+          "name": "Logan Sargeant",
+          "number": 2,
+          "nationality": "American",
+          "date_of_birth": "2000-12-31",
+          "world_championships": 0,
+          "podiums": 0,
+          "points": 1,
+          "grands_prix_entered": 22,
+          "highest_race_finish": "10th (x1)"
+        }
+      ],
+      "car": {
+        "model": "FW46",
+        "engine": {
+          "manufacturer": "Mercedes",
+          "model": "M15",
+          "type": "V6 Turbo Hybrid",
+          "horsepower": 1050,
+          "energy_recovery_system": "Mercedes EQ Power+"
+        },
+        "chassis": {
+          "material": "Carbon fiber",
+          "type": "Monocoque",
+          "weight_distribution": "45.6%/54.4%",
+          "dimensions": {
+            "length": "5100mm",
+            "width": "1900mm",
+            "height": "950mm",
+            "weight": "798kg"
+          }
+        },
+        "performance": {
+          "max_speed": "319 km/h",
+          "0_to_100_kmh": "2.8s",
+          "0_to_200_kmh": "6.0s",
+          "downforce_at_200kmh": "3400kg",
+          "aero": {
+            "front_wing": "Adjustable multi-element",
+            "rear_wing": "Adjustable with DRS",
+            "floor": "Venturi tunnel design",
+            "diffuser": "Multi-channel"
+          }
+        },
+        "color": "Blue, White, Yellow",
+        "color_code": "#004e9e",
+        "image_url": "https://example.com/williams-fw46-profile.jpg",
+        "best_laps": [
+          {
+            "circuit": "Bahrain International Circuit",
+            "best_lap_time": "1:33.876",
+            "top_speed": "317 km/h",
+            "circuit_length": "5.412 km"
+          }
+        ]
+      }
+    }
+  ]
+}

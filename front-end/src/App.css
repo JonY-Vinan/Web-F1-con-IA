@@ -1,4 +1,22 @@
-/* front-end/src/App.css */
+/* App.css */
+
+/* Estilo para el contenedor debajo del navbar */
 .main-content {
-  padding-top: 4rem; /* Puedes ajustar esto según la altura real de tu navbar de Bootstrap */
+  padding-top: 80px; /* Asume que el navbar tendrá 80px de altura */
+  margin: 0 auto;
+  max-width: 1200px;
+  width: 100%;
+}
+
+/* Reset básico para evitar estilos de Bootstrap */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
 }

@@ -1,70 +1,61 @@
-/* CountrySlider.css */
-.circuits-carousel.infinite-scroll {
-  overflow: hidden;
-  white-space: nowrap;
-  position: relative;
-  height: 80px;
-  background-color: #f5f5f5;
-  border-radius: 8px;
+/* country-slider.css */
+
+/* Variables para consistencia, si es necesario */
+:root {
+  --color-dark-bg: #2a2a2e;
+  --color-light-text: #f0f0f0;
+  --color-border: #44444a;
+  --color-focus-border: #e10600; /* Color de la marca de F1 */
+  --shadow-sm: 0 4px 6px rgba(0, 0, 0, 0.3);
+  --border-radius-card: 12px;
+  --border-radius-select: 8px;
 }
 
-.scroll-track {
-  display: inline-block;
-  white-space: nowrap;
-  animation: scroll-left 120s linear infinite;
+.country-slider__container {
+  padding: 0;
+  /* Eliminado: .container-select, ya que es genérico */
 }
 
-.scroll-track:hover {
-  animation-play-state: paused;
+.country-slider__card {
+  background-color: var(--color-dark-bg);
+  border-radius: var(--border-radius-card);
+  box-shadow: var(--shadow-sm);
+  border: 1px solid var(--color-border);
+  margin: 1rem;
+  padding: 0.5rem;
 }
 
-.scroll-item {
-  padding: 0 30px;
+.country-slider__select {
+  width: 100%;
+  padding: 0.5rem 1rem;
+  font-size: 1rem;
+  line-height: 1.5;
+  color: var(--color-light-text);
+  background-color: var(--color-dark-bg);
+  border: 1px solid var(--color-border);
+  border-radius: var(--border-radius-select);
   cursor: pointer;
-  transition: all 0.3s ease;
-  text-align: center;
-  border-right: 1px solid #eee;
-  height: 50px;
+  transition: all 0.2s ease-in-out;
+  
+  /* Eliminar estilos predeterminados del navegador */
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  
+  /* Estilo de la flecha personalizada */
+  background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23f0f0f0' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='m2 5 6 6 6-6'/%3e%3c/svg%3e");
+  background-repeat: no-repeat;
+  background-position: right 1rem center;
+  background-size: 1rem;
 }
 
-.scroll-item:hover {
-  color: #e10600 !important;
-  transform: scale(1.05);
+.country-slider__select:focus {
+  border-color: var(--color-focus-border);
+  outline: 0;
+  box-shadow: 0 0 0 0.25rem rgba(225, 6, 0, 0.25);
 }
 
-.scroll-item.active {
-  color: #e10600 !important;
-  font-weight: bold;
-  position: relative;
-}
-
-.scroll-item.active::after {
-  content: "";
-  position: absolute;
-  bottom: -5px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 20px;
-  height: 3px;
-  background: #e10600;
-}
-
-@keyframes scroll-left {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-50%);
-  }
-}
-
-@media (max-width: 768px) {
-  .scroll-item {
-    padding: 0 15px;
-    font-size: 14px;
-  }
-
-  .circuits-carousel.infinite-scroll {
-    height: 70px;
-  }
+.country-slider__select option {
+  background-color: var(--color-dark-bg);
+  color: var(--color-light-text);
 }
